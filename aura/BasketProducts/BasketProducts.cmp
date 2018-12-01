@@ -1,0 +1,29 @@
+<!--
+ - Created by elatoszek001 on 01.12.2018.
+ -->
+
+<aura:component description="BasketProducts">
+    <aura:attribute name="products" type="List" />
+
+    <aura:registerEvent name="removeItem" type="c:RemoveItemFromBasket"/>
+
+    <lightning:card title="{!'Products ('+ v.products.length + ')'}" iconName="standard:product" variant="base">
+        <aura:set attribute="actions"/>
+        <div class="slds-card__body_inner">
+            <aura:iteration items="{!v.products}" var="product" >
+                <ul class="slds-has-dividers_bottom-space">
+                    <li class="slds-item">
+                        <lightning:layout horizontalAlign="spread">
+                            <lightning:layoutItem size="1">
+                                <lightning:buttonIcon alternativeText="" iconClass="" value="{!product.Product2.Id}" variant="bare" type="button" iconName="utility:close" size="medium" onclick="{!c.removeItem}"/>
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="11">
+                                <c:BasketProduct product="{!product}"/>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </li>
+                </ul>
+            </aura:iteration>
+        </div>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,45 @@
+/**
+ * Created by elatoszek001 on 01.12.2018.
+ */
+.THIS .slds-card__body {
+    margin-left: 1rem;
+    margin-right: .75rem;
+}
+
+.THIS td {
+    padding: .3rem;
+}
+
+.THIS th {
+    padding: .3rem;
+}
+
+.THIS .payment-method-selected {
+    border: 1px solid rgba(27, 82, 150, 1);
+    border-radius: 4px;
+    margin: .5rem;
+    padding: .5rem;
+    width: 50%;
+}
+
+.THIS .payment-method-selected img {
+    display: block;
+    margin : 0 auto;
+    width: 100px;
+    height: 45px;
+}
+
+.THIS .section-label {
+    font-size: .8125rem;
+    font-weight: bold;
+}
+
+.THIS .sum-label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.THIS .sum-amount {
+    font-size: 18px;
+    font-weight: 600;
+}

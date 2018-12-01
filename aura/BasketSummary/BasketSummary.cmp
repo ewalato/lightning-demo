@@ -1,0 +1,71 @@
+<!--
+ - Created by elatoszek001 on 01.12.2018.
+ -->
+
+<aura:component description="BasketSummary">
+    <aura:attribute name="products" type="List" />
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="paymentMethod" type="String" />
+    <aura:attribute name="amount" type="Decimal" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <lightning:card title="Dane zamówienia" variant="base">
+        <lightning:layout >
+            <lightning:layoutItem size="4" >
+                <div class="section-label">
+                    Dane do wysyłki
+                </div>
+                <lightning:formattedAddress
+                        street="{!v.account.ShippingStreet}"
+                        city="{!v.account.ShippingCity}"
+                        country="{!v.account.ShippingCountry}"
+                        province="{!v.account.ShippingState}"
+                        postalCode="{!v.account.ShippingPostalCode}"
+                />
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" >
+                <div class="section-label">
+                    Metoda płatności
+                </div>
+                <div class="payment-method-selected" >
+                    <aura:if isTrue="{!v.paymentMethod == 'dotPay'}" >
+                        <img src="{!$Resource.DotPayLogo}" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.paymentMethod == 'payU'}" >
+                        <img src="{!$Resource.PayULogo}" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.paymentMethod == 'blik'}" >
+                        <img src="{!$Resource.BlikLogo}" />
+                    </aura:if>
+                    <aura:if isTrue="{!v.paymentMethod == 'card'}" >
+                        <img src="{!$Resource.CardIcon}" />
+                    </aura:if>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="4" >
+                <div class="sum-label">
+                    Do zapłaty:
+                </div>
+                <div class="sum-amount">
+                    {!v.amount + ' zł'}
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+    <lightning:card title="Zamówienie" variant="base">
+        <table>
+            <tr>
+                <th>Tytuł</th>
+                <th>Format</th>
+                <th>Cena</th>
+            </tr>
+            <aura:iteration items="{!v.products}" var="product" >
+                <tr>
+                    <td>{!product.Product2.Name}</td>
+                    <td>{!product.Product2.Format__c}</td>
+                    <td>{!product.UnitPrice + ' zł'}</td>
+                </tr>
+            </aura:iteration>
+        </table>
+    </lightning:card>
+</aura:component>

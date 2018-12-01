@@ -1,0 +1,64 @@
+/**
+ * Created by elatoszek001 on 01.12.2018.
+ */
+.THIS lightning-input {
+    margin-left: .5rem;
+    margin-right: .5rem;
+    max-width: 95%;
+}
+
+.THIS lightning-textarea {
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.THIS .slds-form-element__row {
+    max-width: 90%;
+}
+
+.THIS label {
+    margin-left: .5rem;
+}
+
+.THIS .payments-section {
+    margin-top: 1rem;
+}
+
+.THIS .payment-method {
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    margin: .5rem;
+    padding: .5rem;
+}
+
+.THIS .payment-method input {
+    display: block;
+    margin : 0 auto;
+    width: 150px;
+    height: 70px;
+    opacity: .3;
+}
+
+.THIS .payment-method-selected {
+    border: 1px solid rgba(27, 82, 150, 1);
+    border-radius: 4px;
+    margin: .5rem;
+    padding: .5rem;
+}
+
+.THIS .payment-method-selected input {
+    display: block;
+    margin : 0 auto;
+    width: 150px;
+    height: 70px;
+}
+
+.THIS .slds-card__body {
+    margin-left: 1rem;
+    margin-right: .75rem;
+}
+
+.THIS .section-label {
+    font-size: .8125rem;
+    font-weight: bold;
+}

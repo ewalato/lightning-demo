@@ -1,0 +1,89 @@
+<!--
+ - Created by elatoszek001 on 01.12.2018.
+ -->
+
+<aura:component description="BasketShipping">
+    <aura:attribute name="account" type="Account" />
+    <aura:attribute name="editMode" type="Boolean" default="false"/>
+    <aura:attribute name="paymentMethod" type="String" />
+
+    <lightning:card title="Dane i opcje płatności" variant="base">
+        <aura:set attribute="actions"/>
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="12">
+                <aura:if isTrue="{!v.editMode}" >
+                    <lightning:layout multipleRows="true">
+                        <lightning:layoutItem size="6">
+                            <lightning:input class="slds-m-bottom_x-small" label="Imię" type="text" variant="standard"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6">
+                            <lightning:input class="slds-m-bottom_x-small" label="Nazwisko" type="text" variant="standard"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6">
+                            <lightning:input class="slds-m-bottom_x-small" label="Numer telefonu" type="text" variant="standard"/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem size="6">
+                            <lightning:inputAddress streetLabel="Ulica"
+                                                    cityLabel="Miasto"
+                                                    provinceLabel="Województwo"
+                                                    countryLabel="Kraj"
+                                                    postalCodeLabel="Kod pocztowy"
+                                                    street="{!v.account.ShippingStreet}"
+                                                    city="{!v.account.ShippingCity}"
+                                                    country="{!v.account.ShippingCountry}"
+                                                    province="{!v.account.ShippingState}"
+                                                    postalCode="{!v.account.ShippingPostalCode}"
+                                                    variant="standard"/>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                    <aura:set attribute="else" >
+                        <lightning:layout multipleRows="true" >
+                            <lightning:layoutItem size="12" class="section-label">
+                                Dane do wysyłki
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="6" >
+                                <lightning:formattedAddress
+                                        street="{!v.account.ShippingStreet}"
+                                        city="{!v.account.ShippingCity}"
+                                        country="{!v.account.ShippingCountry}"
+                                        province="{!v.account.ShippingState}"
+                                        postalCode="{!v.account.ShippingPostalCode}"
+                                />
+                            </lightning:layoutItem>
+                            <lightning:layoutItem size="6" >
+                                <lightning:button variant="base" label="Zmień dane wysyłki" onclick="{!c.handleAddressChange}"/>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </aura:set>
+                </aura:if>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="12" class="payments-section">
+                <lightning:layout multipleRows="true">
+                    <lightning:layoutItem size="12" class="section-label">
+                        Wybierz metodę płatności
+                    </lightning:layoutItem>
+                    <lightning:layoutItem flexibility="grow">
+                        <div class="payment-method" aura:id="dotPay" >
+                            <input type="image" src="{!$Resource.DotPayLogo}" value="dotPay" onclick="{!c.selectedPaymentMethod}" />
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem flexibility="grow">
+                        <div class="payment-method" aura:id="payU">
+                            <input type="image" src="{!$Resource.PayULogo}" value="payU" onclick="{!c.selectedPaymentMethod}" />
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem flexibility="grow">
+                        <div class="payment-method" aura:id="blik">
+                            <input type="image" src="{!$Resource.BlikLogo}" value="blik" onclick="{!c.selectedPaymentMethod}" />
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem flexibility="grow">
+                        <div class="payment-method" aura:id="card">
+                            <input type="image" src="{!$Resource.CardIcon}" value="card" onclick="{!c.selectedPaymentMethod}" />
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,50 @@
+<aura:component description="Basket"
+                controller="BasketController"
+                implements="force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+                access="global">
+
+    <aura:attribute name="currentStep" type="Integer" default="0"/>
+    <aura:attribute name="steps" type="List" />
+    <aura:attribute name="data" type="Object" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:card>
+        <lightning:layout>
+            <lightning:layoutItem size="12">
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure">
+                        <aura:if isTrue="{!not(v.currentStep == 0)}" >
+                            <lightning:button class="slds-theme_neutral" variant="neutral" label="Wróć" onclick="{!c.handleBack}"/>
+                        </aura:if>
+                    </div>
+                    <div class="slds-media__body">
+                        <lightning:progressIndicator currentStep="{!v.currentStep}" type="base" variant="base">
+                            <aura:iteration items="{!v.steps}" var="step" >
+                                <lightning:progressStep label="{!step.name}" value="{!step.value}"/>
+                            </aura:iteration>
+                        </lightning:progressIndicator>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                        <aura:if isTrue="{!not(v.currentStep == v.steps.length - 1)}" >
+                            <lightning:button class="slds-theme_brand" variant="brand" label="Dalej" onclick="{!c.handleNext}"/>
+                            <aura:set attribute="else">
+                                <lightning:button class="slds-theme_brand" variant="brand" label="Złóż zamówienie" onclick="{!c.handleSave}"/>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                </div>
+
+                <aura:if isTrue="{!v.currentStep == 0}" >
+                    <c:BasketProducts products="{!v.data.entries}" removeItem="{!c.handleRemoveItem}"/>
+                </aura:if>
+                <aura:if isTrue="{!v.currentStep == 1}" >
+                    <c:BasketShipping account="{!v.data.account}" paymentMethod="{!v.data.paymentMethod}"/>
+                </aura:if>
+                <aura:if isTrue="{!v.currentStep == 2}" >
+                    <c:BasketSummary products="{!v.data.entries}" account="{!v.data.account}" paymentMethod="{!v.data.paymentMethod}"/>
+                </aura:if>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

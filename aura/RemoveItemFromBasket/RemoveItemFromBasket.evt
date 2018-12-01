@@ -1,0 +1,7 @@
+<!--
+ - Created by elatoszek001 on 01.12.2018.
+ -->
+
+<aura:event type="COMPONENT" description="RemoveItemFromBasket">
+    <aura:attribute name="productId" type="Id"/>
+</aura:event>
