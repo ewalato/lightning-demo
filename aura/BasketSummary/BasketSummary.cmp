@@ -28,16 +28,16 @@
                     Metoda płatności
                 </div>
                 <div class="payment-method-selected" >
-                    <aura:if isTrue="{!v.paymentMethod == 'dotPay'}" >
+                    <aura:if isTrue="{!v.paymentMethod == 'DotPay'}" >
                         <img src="{!$Resource.DotPayLogo}" />
                     </aura:if>
-                    <aura:if isTrue="{!v.paymentMethod == 'payU'}" >
+                    <aura:if isTrue="{!v.paymentMethod == 'PayU'}" >
                         <img src="{!$Resource.PayULogo}" />
                     </aura:if>
-                    <aura:if isTrue="{!v.paymentMethod == 'blik'}" >
+                    <aura:if isTrue="{!v.paymentMethod == 'Blik'}" >
                         <img src="{!$Resource.BlikLogo}" />
                     </aura:if>
-                    <aura:if isTrue="{!v.paymentMethod == 'card'}" >
+                    <aura:if isTrue="{!v.paymentMethod == 'Card'}" >
                         <img src="{!$Resource.CardIcon}" />
                     </aura:if>
                 </div>

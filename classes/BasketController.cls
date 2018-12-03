@@ -27,6 +27,8 @@ public with sharing class BasketController {
         [
             SELECT
                 Id,
+                Name,
+                Phone,
                 ShippingStreet,
                 ShippingState,
                 ShippingPostalCode,

@@ -14,13 +14,10 @@
                 <aura:if isTrue="{!v.editMode}" >
                     <lightning:layout multipleRows="true">
                         <lightning:layoutItem size="6">
-                            <lightning:input class="slds-m-bottom_x-small" label="Imię" type="text" variant="standard"/>
+                            <lightning:input class="slds-m-bottom_x-small" label="Imię i Nazwisko" type="text" value="{!v.account.Name}" variant="standard"/>
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6">
-                            <lightning:input class="slds-m-bottom_x-small" label="Nazwisko" type="text" variant="standard"/>
-                        </lightning:layoutItem>
-                        <lightning:layoutItem size="6">
-                            <lightning:input class="slds-m-bottom_x-small" label="Numer telefonu" type="text" variant="standard"/>
+                            <lightning:input class="slds-m-bottom_x-small" label="Numer telefonu" type="text" value="{!v.account.Phone}" variant="standard"/>
                         </lightning:layoutItem>
                         <lightning:layoutItem size="6">
                             <lightning:inputAddress streetLabel="Ulica"
@@ -64,22 +61,22 @@
                     </lightning:layoutItem>
                     <lightning:layoutItem flexibility="grow">
                         <div class="payment-method" aura:id="dotPay" >
-                            <input type="image" src="{!$Resource.DotPayLogo}" value="dotPay" onclick="{!c.selectedPaymentMethod}" />
+                            <input type="image" src="{!$Resource.DotPayLogo}" value="DotPay" onclick="{!c.selectedPaymentMethod}" />
                         </div>
                     </lightning:layoutItem>
                     <lightning:layoutItem flexibility="grow">
                         <div class="payment-method" aura:id="payU">
-                            <input type="image" src="{!$Resource.PayULogo}" value="payU" onclick="{!c.selectedPaymentMethod}" />
+                            <input type="image" src="{!$Resource.PayULogo}" value="PayU" onclick="{!c.selectedPaymentMethod}" />
                         </div>
                     </lightning:layoutItem>
                     <lightning:layoutItem flexibility="grow">
                         <div class="payment-method" aura:id="blik">
-                            <input type="image" src="{!$Resource.BlikLogo}" value="blik" onclick="{!c.selectedPaymentMethod}" />
+                            <input type="image" src="{!$Resource.BlikLogo}" value="Blik" onclick="{!c.selectedPaymentMethod}" />
                         </div>
                     </lightning:layoutItem>
                     <lightning:layoutItem flexibility="grow">
                         <div class="payment-method" aura:id="card">
-                            <input type="image" src="{!$Resource.CardIcon}" value="card" onclick="{!c.selectedPaymentMethod}" />
+                            <input type="image" src="{!$Resource.CardIcon}" value="Card" onclick="{!c.selectedPaymentMethod}" />
                         </div>
                     </lightning:layoutItem>
                 </lightning:layout>
