@@ -60,22 +60,22 @@
                         Wybierz metodę płatności
                     </lightning:layoutItem>
                     <lightning:layoutItem flexibility="grow">
-                        <div class="payment-method" aura:id="dotPay" >
+                        <div class="payment-method" aura:id="DotPay" >
                             <input type="image" src="{!$Resource.DotPayLogo}" value="DotPay" onclick="{!c.selectedPaymentMethod}" />
                         </div>
                     </lightning:layoutItem>
                     <lightning:layoutItem flexibility="grow">
-                        <div class="payment-method" aura:id="payU">
+                        <div class="payment-method" aura:id="PayU">
                             <input type="image" src="{!$Resource.PayULogo}" value="PayU" onclick="{!c.selectedPaymentMethod}" />
                         </div>
                     </lightning:layoutItem>
                     <lightning:layoutItem flexibility="grow">
-                        <div class="payment-method" aura:id="blik">
+                        <div class="payment-method" aura:id="Blik">
                             <input type="image" src="{!$Resource.BlikLogo}" value="Blik" onclick="{!c.selectedPaymentMethod}" />
                         </div>
                     </lightning:layoutItem>
                     <lightning:layoutItem flexibility="grow">
-                        <div class="payment-method" aura:id="card">
+                        <div class="payment-method" aura:id="Card">
                             <input type="image" src="{!$Resource.CardIcon}" value="Card" onclick="{!c.selectedPaymentMethod}" />
                         </div>
                     </lightning:layoutItem>

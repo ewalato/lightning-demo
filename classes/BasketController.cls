@@ -54,6 +54,7 @@ public with sharing class BasketController {
             newOrder.ShippingPostalCode = data.account.ShippingPostalCode;
             newOrder.ShippingCountry = data.account.ShippingCountry;
             newOrder.ShippingCity = data.account.ShippingCity;
+            newOrder.Payment_Method__c = data.paymentMethod;
             insert newOrder;
 
             List<OrderItem> items = new List<OrderItem>();

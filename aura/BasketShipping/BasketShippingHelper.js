@@ -3,7 +3,7 @@
  */
 ({
     handleSelection: function(component) {
-        var paymentMethodIds = [ 'dotPay', 'payU', 'blik', 'card' ];
+        var paymentMethodIds = [ 'DotPay', 'PayU', 'Blik', 'Card' ];
         var paymentMethodId = component.get('v.paymentMethod');
         paymentMethodIds.forEach(function(element) {
             if (element != paymentMethodId) {
