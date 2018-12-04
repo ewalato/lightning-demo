@@ -1,0 +1,8 @@
+/**
+ * Created by elatoszek001 on 04.12.2018.
+ */
+@media screen and (max-width: 600px) {
+    .THIS .product-image {
+        display: none;
+    }
+}

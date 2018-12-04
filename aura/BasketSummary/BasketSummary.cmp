@@ -61,9 +61,15 @@
             </tr>
             <aura:iteration items="{!v.products}" var="product" >
                 <tr>
-                    <td>{!product.Product2.Name}</td>
-                    <td>{!product.Product2.Format__c}</td>
-                    <td>{!product.UnitPrice + ' zł'}</td>
+                    <td>
+                        <ui:outputText value="{!product.Product2.Name}"/>
+                    </td>
+                    <td>
+                        <ui:outputText value="{!product.Product2.Format__c}"/>
+                    </td>
+                    <td>
+                        <ui:outputCurrency value="{!product.UnitPrice}"/>
+                    </td>
                 </tr>
             </aura:iteration>
         </table>

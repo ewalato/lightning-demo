@@ -10,16 +10,16 @@
     <lightning:card title="Dane i opcje płatności" variant="base">
         <aura:set attribute="actions"/>
         <lightning:layout multipleRows="true">
-            <lightning:layoutItem size="12">
+            <lightning:layoutItem size="12" flexibility="grow">
                 <aura:if isTrue="{!v.editMode}" >
                     <lightning:layout multipleRows="true">
-                        <lightning:layoutItem size="6">
+                        <lightning:layoutItem size="6" flexibility="grow">
                             <lightning:input class="slds-m-bottom_x-small" label="Imię i Nazwisko" type="text" value="{!v.account.Name}" variant="standard"/>
                         </lightning:layoutItem>
-                        <lightning:layoutItem size="6">
+                        <lightning:layoutItem size="6" flexibility="grow">
                             <lightning:input class="slds-m-bottom_x-small" label="Numer telefonu" type="text" value="{!v.account.Phone}" variant="standard"/>
                         </lightning:layoutItem>
-                        <lightning:layoutItem size="6">
+                        <lightning:layoutItem size="8" flexibility="grow">
                             <lightning:inputAddress streetLabel="Ulica"
                                                     cityLabel="Miasto"
                                                     provinceLabel="Województwo"
@@ -35,10 +35,10 @@
                     </lightning:layout>
                     <aura:set attribute="else" >
                         <lightning:layout multipleRows="true" >
-                            <lightning:layoutItem size="12" class="section-label">
+                            <lightning:layoutItem size="12" flexibility="grow" class="section-label">
                                 Dane do wysyłki
                             </lightning:layoutItem>
-                            <lightning:layoutItem size="6" >
+                            <lightning:layoutItem size="6" flexibility="grow">
                                 <lightning:formattedAddress
                                         street="{!v.account.ShippingStreet}"
                                         city="{!v.account.ShippingCity}"
@@ -47,37 +47,29 @@
                                         postalCode="{!v.account.ShippingPostalCode}"
                                 />
                             </lightning:layoutItem>
-                            <lightning:layoutItem size="6" >
+                            <lightning:layoutItem size="6" flexibility="grow">
                                 <lightning:button variant="base" label="Zmień dane wysyłki" onclick="{!c.handleAddressChange}"/>
                             </lightning:layoutItem>
                         </lightning:layout>
                     </aura:set>
                 </aura:if>
             </lightning:layoutItem>
-            <lightning:layoutItem size="12" class="payments-section">
+            <lightning:layoutItem size="12" class="payments-section" flexibility="grow">
                 <lightning:layout multipleRows="true">
                     <lightning:layoutItem size="12" class="section-label">
                         Wybierz metodę płatności
                     </lightning:layoutItem>
-                    <lightning:layoutItem flexibility="grow">
-                        <div class="payment-method" aura:id="DotPay" >
-                            <input type="image" src="{!$Resource.DotPayLogo}" value="DotPay" onclick="{!c.selectedPaymentMethod}" />
-                        </div>
+                    <lightning:layoutItem aura:id="DotPay" flexibility="grow" class="payment-method" >
+                        <input type="image" src="{!$Resource.DotPayLogo}" value="DotPay" onclick="{!c.selectedPaymentMethod}" />
                     </lightning:layoutItem>
-                    <lightning:layoutItem flexibility="grow">
-                        <div class="payment-method" aura:id="PayU">
-                            <input type="image" src="{!$Resource.PayULogo}" value="PayU" onclick="{!c.selectedPaymentMethod}" />
-                        </div>
+                    <lightning:layoutItem aura:id="PayU" flexibility="grow" class="payment-method" >
+                        <input type="image" src="{!$Resource.PayULogo}" value="PayU" onclick="{!c.selectedPaymentMethod}" />
                     </lightning:layoutItem>
-                    <lightning:layoutItem flexibility="grow">
-                        <div class="payment-method" aura:id="Blik">
-                            <input type="image" src="{!$Resource.BlikLogo}" value="Blik" onclick="{!c.selectedPaymentMethod}" />
-                        </div>
+                    <lightning:layoutItem aura:id="Blik" flexibility="grow" class="payment-method" >
+                        <input type="image" src="{!$Resource.BlikLogo}" value="Blik" onclick="{!c.selectedPaymentMethod}" />
                     </lightning:layoutItem>
-                    <lightning:layoutItem flexibility="grow">
-                        <div class="payment-method" aura:id="Card">
-                            <input type="image" src="{!$Resource.CardIcon}" value="Card" onclick="{!c.selectedPaymentMethod}" />
-                        </div>
+                    <lightning:layoutItem aura:id="Card" flexibility="grow" class="payment-method" >
+                        <input type="image" src="{!$Resource.CardIcon}" value="Card" onclick="{!c.selectedPaymentMethod}" />
                     </lightning:layoutItem>
                 </lightning:layout>
             </lightning:layoutItem>

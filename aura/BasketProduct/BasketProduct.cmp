@@ -2,25 +2,32 @@
     <aura:attribute name="product" type="Object" />
 
     <lightning:layout multipleRows="false">
-        <lightning:layoutItem size="3" padding="around-small">
+        <lightning:layoutItem class="product-image" size="3" padding="around-small">
             <aura:unescapedHtml value="{!v.product.Product2.Image__c}" />
         </lightning:layoutItem>
         <lightning:layoutItem size="9" padding="around-small">
-            <a href="javascript:void(0);" class="slds-text-link">{!v.product.Product2.Name}</a>
-            <div style="font-size: 0.8125rem;">
-                <span>{!v.product.description}</span>
+            <a href="javascript:void(0);" class="slds-text-link">
+                {!v.product.Product2.Name}
+            </a>
+            <lightning:layout multipleRows="false">
                 <ul class="slds-list_horizontal slds-has-dividers_left">
                     <li class="slds-item">
-                        <div class="slds-text-title slds-text-color_default">Autor: {!v.product.Product2.Author__c}</div>
+                        <div class="slds-text-title slds-text-color_default">
+                            <ui:outputText value="{!'Autor: ' + v.product.Product2.Author__c}"/>
+                        </div>
                     </li>
                     <li class="slds-item">
-                        <div class="slds-text-title slds-text-color_default">Format: {!v.product.Product2.Format__c}</div>
+                        <div class="slds-text-title slds-text-color_default">
+                            <ui:outputText value="{!'Format: ' + v.product.Product2.Format__c}"/>
+                        </div>
                     </li>
                     <li class="slds-item">
-                        <div class="slds-text-title slds-text-color_default">{!v.product.UnitPrice} zł</div>
+                        <div class="slds-text-title slds-text-color_default">
+                            <ui:outputCurrency value="{!v.product.UnitPrice}"/>
+                        </div>
                     </li>
                 </ul>
-            </div>
+            </lightning:layout>
         </lightning:layoutItem>
     </lightning:layout>
 </aura:component>
